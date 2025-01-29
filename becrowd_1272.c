@@ -13,7 +13,13 @@ int main()
   {
     char *strings[50];
     char string[51];
-    scanf("%51s", &string);
+    scanf("%50[^\n]", string);
+    getchar();
+    if (string[0] == ' ' && strlen(string) <= 1)
+    {
+      printf("\n");
+      continue;
+    }
     char *token = strtok(string, " ");
     int j = 0;
     while (token != NULL)
